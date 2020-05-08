@@ -29,6 +29,7 @@ public class Action implements KeyListener, ActionListener {
     public void gameOver() {
 
         timer.stop();
+        Sound.getInstance().playGameOver();
         paused = true;
         Sound.getInstance().playGameOver();
     }

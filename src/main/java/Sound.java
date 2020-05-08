@@ -7,22 +7,10 @@ import java.util.concurrent.TimeUnit;
 
 
 public class Sound {
-    private File lineRemoved, gameOver;
-    private static Sound sound;
-    //    private Clip clip;
-    private AudioInputStream lineRemovedStream, gameOverStream;
+   private static Sound sound;
 
     private Sound() {
-        lineRemoved = new File(".\\audio\\Line Removed.wav");
-        gameOver = new File(".\\audio\\Game Over.wav");
-        try {
-//            clip = AudioSystem.getClip();
-            lineRemovedStream = AudioSystem.getAudioInputStream(lineRemoved);
-            gameOverStream = AudioSystem.getAudioInputStream(gameOver);
-//            clip.open(lineRemovedStream);
-        } catch (Exception e) {
-            System.out.println("can't find file");
-        }
+
     }
 
     public static Sound getInstance() {
@@ -34,21 +22,24 @@ public class Sound {
 
         try {
             Clip clip = AudioSystem.getClip();
-            clip.open(lineRemovedStream);
+            clip.open(AudioSystem.getAudioInputStream(new File(".\\audio\\Line Removed.wav")));
             clip.start();
-            TimeUnit.SECONDS.sleep(1);
-            clip.close();
+//            TimeUnit.SECONDS.sleep(1);
+//            clip.close();
         } catch (Exception e) {
             System.out.println("error");
         }
     }
 
     public void playGameOver() {
-//        try {
-//            clip.open(gameOverStream);
-//            clip.start();
-//        }catch(Exception e){
-//
-//        }
+        try {
+            Clip clip = AudioSystem.getClip();
+            clip.open(AudioSystem.getAudioInputStream(new File(".\\audio\\Game Over.wav")));
+            clip.start();
+//            TimeUnit.SECONDS.sleep(1);
+//            clip.close();
+        } catch (Exception e) {
+            System.out.println("error");
+        }
     }
 }

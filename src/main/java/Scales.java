@@ -39,7 +39,7 @@ public class Scales {
     public static final Color Board_usedArea_Color = new Color(80, 10, 160);
 
     // variable scales:
-    private static int Board_Dimension_n = 10;
+    private static int Board_Dimension_n = 12;
     private static int Board_Dimension_m = 20;
 
     // keys:

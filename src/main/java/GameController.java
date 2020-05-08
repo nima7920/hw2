@@ -63,6 +63,7 @@ public class GameController {
         profile.updateScoresTable();
         Score.getInstance().reStart();
         profile.reStart();
+        HintBoard.getInstance().reStart();
         initialize();
     }
 
